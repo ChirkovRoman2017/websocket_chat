@@ -1,0 +1,14 @@
+@import 'normalize';
+@import 'fonts';
+@import 'vars';
+
+body {
+    min-height: 100vh;
+    max-width: 100%;
+    font-family: $fontFamilyBase;
+    font-size: $fontSizeBase;
+    background: url(/app/static/img/test_bg_1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
