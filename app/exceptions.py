@@ -1,6 +1,3 @@
-from typing import Any, Dict
-from typing_extensions import Annotated, Doc
-
 from fastapi import status, HTTPException
 
 
