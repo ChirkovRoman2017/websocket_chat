@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, middleware
+from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
 from fastapi.exceptions import HTTPException
 from fastapi.middleware.cors import CORSMiddleware

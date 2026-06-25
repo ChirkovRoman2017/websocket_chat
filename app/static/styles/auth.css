@@ -195,7 +195,28 @@ body {
   max-width: 100%;
   font-family: "Montserrat";
   font-size: 16px;
-  background: url(/app/static/img/test_bg_1.jpg);
+  background-image: url("/static/img/test_bg_2.jpg");
   background-size: cover;
   background-position: center;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.center {
+  max-width: 1470px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  display: flex;
 }/*# sourceMappingURL=auth.css.map */

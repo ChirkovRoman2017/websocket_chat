@@ -1,8 +1,9 @@
+// Обработка кликов по вкладкам
 document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => showTab(tab.CDATA_SECTION_NODE.tab));
+    tab.addEventListener('click', () => showTab(tab.dataset.tab));
 });
 
-
+// Функция отображения выбранной вкладки
 function showTab(tabName) {
     document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
     document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
@@ -11,9 +12,11 @@ function showTab(tabName) {
     document.getElementById(`${tabName}Form`).classList.add('active');
 }
 
+// Функция для валидации данных формы
 const validateForm = fields => fields.every(field => field.trim() !== '');
 
-const sendRequest = async (URL, data) => {
+// Функция для отправки запросов
+const sendRequest = async (url, data) => {
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -31,14 +34,15 @@ const sendRequest = async (URL, data) => {
             return null;
         }
     } catch (error) {
-        console.error("Ошибка:", error);
+        console.error();
         alert('Произошла ошибка на сервере');
     }
 };
 
-const hanleFormSubmit = async (formType, url, fields) => {
+// Функция для обработки формы
+const handleFormSubmit = async (formType, url, fields) => {
     if (!validateForm(fields)) {
-        alert('Пожалуйста, заполните все поля!');
+        alert('Пожалуйста, заполните все поля.');
         return;
     }
 
@@ -51,17 +55,17 @@ const hanleFormSubmit = async (formType, url, fields) => {
     }
 };
 
-
+// Обработка формы входа
 document.getElementById('loginButton').addEventListener('click', async (event) => {
     event.preventDefault();
 
     const email = document.querySelector('#loginForm input[type="email"]').value;
     const password = document.querySelector('#loginForm input[type="password"]').value;
 
-    await hanleFormSubmit('login', 'login/', [email, password]);
+    await handleFormSubmit('login', 'login/', [email, password]);
 });
 
-
+// Обработка формы регистрации
 document.getElementById('registerButton').addEventListener('click', async (event) => {
     event.preventDefault();
 
@@ -70,10 +74,10 @@ document.getElementById('registerButton').addEventListener('click', async (event
     const password = document.querySelectorAll('#registerForm input[type="password"]')[0].value;
     const password_check = document.querySelectorAll('#registerForm input[type="password"]')[1].value;
 
-    if (password != password_check) {
-        alert('Пароли не совпадают!');
+    if (password !== password_check) {
+        alert('Пароли не совпадают.');
         return;
     }
 
-    await hanleFormSubmit('register', 'register/', [email, name, password, password_check]);
+    await handleFormSubmit('register', 'register/', [email, name, password, password_check]);
 });
