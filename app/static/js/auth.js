@@ -1,14 +1,14 @@
 // Обработка кликов по вкладкам
-document.querySelectorAll('.tab').forEach(tab => {
+document.querySelectorAll('.auth__tab').forEach(tab => {
     tab.addEventListener('click', () => showTab(tab.dataset.tab));
 });
 
 // Функция отображения выбранной вкладки
 function showTab(tabName) {
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
+    document.querySelectorAll('.auth__tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.auth__form').forEach(form => form.classList.remove('active'));
 
-    document.querySelector(`.tab[data-tab="${tabName}"]`).classList.add('active');
+    document.querySelector(`.auth__tab[data-tab="${tabName}"]`).classList.add('active');
     document.getElementById(`${tabName}Form`).classList.add('active');
 }
 
