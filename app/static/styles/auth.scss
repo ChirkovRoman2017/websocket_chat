@@ -43,7 +43,7 @@ ul {
 .auth {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     max-width: 400px;
     flex-shrink: 1;
     flex-grow: 1;
@@ -56,6 +56,7 @@ ul {
 
     &__tabs {
         display: flex;
+        margin-bottom: 10px;
     }
 
     &__tab {
@@ -64,10 +65,12 @@ ul {
         padding: 10px;
         cursor: pointer;
         font-size: 1.5rem;
+        font-weight: 400;
+        color: $colorViolet;
     }
 
     &__content {
-        height: 80%;
+        height: 100%;
     }
 
     &__form {
@@ -76,7 +79,10 @@ ul {
     }
 
     &__form.active {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 100%;
     }
 
     &__field {
@@ -87,9 +93,59 @@ ul {
     &__label {
         font-weight: 400;
         font-size: 1.2rem;
+        color: $colorViolet;
+        padding-left: 10px;
+    }
+
+    &__input {
+        padding: 10px;
+        border: 1px solid $colorWhite;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: transparent;
+
+        &:focus {
+            border: $colorViolet;
+        }
+        &:active {
+            border: $colorViolet;
+        }
+
+        &::placeholder {
+            color: $colorViolet;
+            opacity: 0.5;
+        }
     }
 
     &__button {
         margin-top: auto;
+        padding: 10px;
+        border: 1px solid $colorWhite;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $colorViolet;
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: $colorViolet;
+            color: $colorWhite;
+            border: 1px solid $colorViolet;
+        }
+
+        &:active {
+            scale: 0.95;
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .auth__tab {
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    .auth__label {
+        font-size: 1rem;
     }
 }
