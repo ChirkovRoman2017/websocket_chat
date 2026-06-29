@@ -13,11 +13,6 @@ router = APIRouter(prefix='/auth', tags=['Auth'])
 templates = Jinja2Templates(directory='app/templates')
 
 
-@router.get("/", response_class=HTMLResponse, summary="Страница авторизации")
-async def get_categories(request: Request):
-    return templates.TemplateResponse("auth.html", {"request": request})
-
-
 @router.post("/register/")
 async def register_user(user_data: SUserRegister) -> dict:
     user = await UsersDAO.find_one_or_none(email=user_data.email)
@@ -25,7 +20,7 @@ async def register_user(user_data: SUserRegister) -> dict:
         raise UserAlreadyExistException
     
     if user_data.password != user_data.password_check:
-        raise PasswordMismatchException("Пароли не совпадают")
+        raise PasswordMismatchException
     hashed_password = get_password_hash(user_data.password)
     await UsersDAO.add(
         name=user_data.name,
@@ -50,3 +45,8 @@ async def auth_user(response: Response, user_data: SUserAuth):
 async def logout_user(response: Response):
     response.delete_cookie(key="users_access_token")
     return {'message': 'Пользователь успешно вышел из системы.'}
+
+
+@router.get("/", response_class=HTMLResponse, summary="Страница авторизации")
+async def get_categories(request: Request):
+    return templates.TemplateResponse("auth.html", {"request": request})

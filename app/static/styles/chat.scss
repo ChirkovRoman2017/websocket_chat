@@ -1,0 +1,28 @@
+@import 'normalize';
+@import 'fonts';
+@import 'vars';
+
+body {
+    min-height: 100vh;
+    font-family: $fontFamilyBase;
+    font-size: $fontSizeBase;
+    background-image: url('/static/img/test_bg_1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: $colorWhite;
+}
+
+a {
+    text-decoration: none;
+    color: $colorWhite;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.center {
+    max-width: calc($widthLg + $paddingX * 2);
+    padding: 0 $paddingX;
+    margin: 0 auto;
+}

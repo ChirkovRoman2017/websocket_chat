@@ -99,21 +99,24 @@ ul {
 
     &__input {
         padding: 10px;
-        border: 1px solid $colorWhite;
+        border: 1px solid $colorViolet;
         border-radius: 10px;
         margin-bottom: 10px;
         background-color: transparent;
+        color: $colorViolet;
 
         &:focus {
-            border: $colorViolet;
+            outline: none;
+            border: 1px solid $colorViolet; 
+            box-shadow: 0 0 5px $colorViolet; 
         }
         &:active {
-            border: $colorViolet;
+            border: 1px solid $colorViolet;
         }
 
         &::placeholder {
             color: $colorViolet;
-            opacity: 0.5;
+            opacity: 0.6;
         }
     }
 
@@ -142,10 +145,11 @@ ul {
 @media (max-width: 560px) {
     .auth__tab {
         font-size: 1rem;
-        padding: 5px;
+        padding: 10px;
     }
 
     .auth__label {
         font-size: 1rem;
     }
 }
+
