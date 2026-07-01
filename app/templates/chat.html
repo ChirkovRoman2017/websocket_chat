@@ -7,30 +7,30 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='styles/chat.css') }}">
 </head>
 <body>
-<div class="chat-container">
-    <div class="user-list" id="userList">
+<div class="chat">
+    <div class="chat__users" id="userList">
         <!-- Сначала выводим "Избранное" -->
-        <div class="user-item" data-user-id="{{ user.id }}">
+        <div class="chat__user" data-user-id="{{ user.id }}">
             Избранное
         </div>
         <!-- Выводим остальных пользователей -->
         {% for chat in users_all %}
             {% if chat.id != user.id %}
-                <div class="user-item" data-user-id="{{ chat.id }}">
+                <div class="chat__user" data-user-id="{{ chat.id }}">
                     {{ chat.name }}
                 </div>
             {% endif %}
         {% endfor %}
     </div>
-    <div class="chat-area">
-        <div class="chat-header" id="chatHeader">
+    <div class="chat__area">
+        <div class="chat__header" id="chatHeader">
             <span>Мини-чат</span>
-            <button class="logout-button" id="logoutButton" onclick="logout()">Выход</button>
+            <button class="chat__button_logout" id="logoutButton" onclick="logout()">Выход</button>
         </div>
-        <div class="messages" id="messages">
-            <div class="welcome-message">Выберите чат для общения</div>
+        <div class="chat__messages" id="messages">
+            <div class="chat__message_welcome">Выберите чат для общения</div>
         </div>
-        <div class="input-area">
+        <div class="chat__input">
             <input type="text" id="messageInput" placeholder="Введите сообщение..." disabled>
             <button id="sendButton" disabled>Отправить</button>
         </div>

@@ -26,3 +26,33 @@ ul {
     padding: 0 $paddingX;
     margin: 0 auto;
 }
+
+.chat {
+    display: flex;
+    height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+
+    &__users {
+        width: 30%;
+        backdrop-filter: blur(10px);
+        background: rgba($color: #fff, $alpha: 0.1);
+        overflow-y: auto;
+        border-right: 1px solid $colorViolet;
+    }
+
+    &__user {
+        padding: 15px;
+        border-bottom: 1px solid $colorViolet;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        color: $colorViolet;
+
+        &:hover, &.active {
+            background-color: $colorViolet;
+            backdrop-filter: blur(10px);
+            color: $colorWhite;
+        }
+    }
+}

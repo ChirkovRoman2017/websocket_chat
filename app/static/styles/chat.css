@@ -213,4 +213,31 @@ ul {
   max-width: 1470px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.chat {
+  display: flex;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: transparent;
+}
+.chat__users {
+  width: 30%;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  border-right: 1px solid #5e0ea0;
+}
+.chat__user {
+  padding: 15px;
+  border-bottom: 1px solid #5e0ea0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #5e0ea0;
+}
+.chat__user:hover, .chat__user.active {
+  background-color: #5e0ea0;
+  backdrop-filter: blur(10px);
+  color: #fff;
 }/*# sourceMappingURL=chat.css.map */
